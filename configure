@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+if [ -z "$1" ] || [ -z "$2" ]; then
+  echo "Usage: $0 <UUID> <host>"
+  echo ''
+  echo '  UUID specified there is also used for password of SS and Trojan'
+  echo ''
+  exit 1
+fi
+
+for f in $(find *.example); do
+    echo $f ${f%.example}
+    sed "s/\[CF_UUID\]/$1/g; s/\[CF_HOST\]/$2/g" $f > ${f%.example}
+done
