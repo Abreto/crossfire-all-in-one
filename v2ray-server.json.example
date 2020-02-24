@@ -1,0 +1,69 @@
+{
+    "log" : {
+      "loglevel": "info"
+    },
+    "inbounds": [{
+      "port": 80,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [{
+          "id": "[CF_UUID]", "alterId": 16
+        }]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": { "path": "/filesync" },
+        "sockopt": { "tcpFastOpen": true }
+      }
+    }, {
+      "port": 280,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [{
+          "id": "[CF_UUID]", "alterId": 16
+        }]
+      },
+      "streamSettings": {
+        "network": "http",
+        "httpSettings": {
+          "host": ["[CF_HOST]"],
+          "path": "/filesync/v2ray/h2/vmess"
+        },
+        "sockopt": { "tcpFastOpen": true }
+      }
+    }, {
+      "port": 81,
+      "protocol": "shadowsocks",
+      "settings": {
+        "method": "chacha20-ietf-poly1305",
+        "password": "[CF_UUID]",
+        "network": "tcp,udp"
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": { "path": "/filesync/v2ray/ws/ss" },
+        "sockopt": { "tcpFastOpen": true }
+      }
+    }, {
+      "port": 281,
+      "protocol": "shadowsocks",
+      "settings": {
+        "method": "chacha20-ietf-poly1305",
+        "password": "[CF_UUID]",
+        "network": "tcp,udp"
+      },
+      "streamSettings": {
+        "network": "http",
+        "httpSettings": {
+          "host": ["[CF_HOST]"],
+          "path": "/filesync/v2ray/h2/ss"
+        },
+        "sockopt": { "tcpFastOpen": true }
+      }
+    }],
+    "outbounds": [{
+      "protocol": "freedom",
+      "settings": {}
+    }]
+  }
+  

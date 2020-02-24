@@ -1,0 +1,7 @@
+{
+    # acme_ca https://acme-staging-v02.api.letsencrypt.org/directory
+}
+
+[CF_HOST] {
+    respond "You shouldn't see this"
+}

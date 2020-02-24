@@ -1,0 +1,81 @@
+version: '3.7'
+
+services:
+  certbot:
+    image: caddy/caddy:alpine
+    ports:
+      - 80:80
+    configs:
+      - source: caddyfile
+        target: /etc/caddy/Caddyfile
+    volumes:
+      - caddy-root-home:/root
+    # deploy:
+    #   placement:
+    #     constraints: [node.role == manager]
+
+  trojan:
+    image: trojangfw/trojan
+    ports:
+      - 443:443
+    configs:
+      - source: trojan
+        target: /config/config.json
+    volumes:
+      - caddy-root-home:/cert
+    # deploy:
+    #   placement:
+    #     constraints: [node.role == manager]
+
+  lb:
+    image: haproxy
+    configs:
+      - source: loadbalance
+        target: /usr/local/etc/haproxy/haproxy.cfg
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    # deploy:
+    #   placement:
+    #     constraints: [node.role == manager]
+
+  v2ray:
+    image: v2ray/official
+    configs:
+      - source: v2ray
+        target: /etc/v2ray/config.json
+    # deploy:
+    #   placement:
+    #     constraints: [node.role == worker]
+
+  ss:
+    image: gists/shadowsocks-libev:v2ray-plugin-latest
+    environment:
+      - SS=ss-server --fast-open
+      - SERVER_PORT=80
+      - PASSWORD=[CF_UUID]
+      - METHOD=chacha20-ietf-poly1305
+      - PLUGIN_OPTS=server;path=/filesync/ss/v2ray-plugin
+    # deploy:
+    #   placement:
+    #     constraints: [node.role == worker]
+
+  sb:
+    image: abreto/sb
+
+configs:
+  caddyfile:
+    file: ./Caddyfile
+  loadbalance:
+    file: ./haproxy.cfg
+  trojan:
+    file: ./trojan-server.json
+  v2ray:
+    file: ./v2ray-server.json
+
+volumes:
+  caddy-root-home:
+
+networks:
+  default:
+    driver: overlay
