@@ -32,9 +32,6 @@ services:
     configs:
       - source: loadbalance
         target: /usr/local/etc/haproxy/haproxy.cfg
-    deploy:
-      placement:
-        constraints: [node.role == manager]
     # deploy:
     #   placement:
     #     constraints: [node.role == manager]
