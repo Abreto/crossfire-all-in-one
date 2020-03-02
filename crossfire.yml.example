@@ -24,7 +24,7 @@ services:
       - source: trojan
         target: /config/config.json
     volumes:
-      - caddy-root-home:/cert
+      - caddy-data:/cert
     # deploy:
     #   placement:
     #     constraints: [node.role == manager]
