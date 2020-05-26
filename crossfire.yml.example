@@ -76,6 +76,7 @@ configs:
 
 volumes:
   caddy-data:
+  caddy-config:
 
 networks:
   default:
