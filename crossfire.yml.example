@@ -2,9 +2,10 @@ version: '3.7'
 
 services:
   certbot:
-    image: caddy/caddy:alpine
+    image: caddy:2
     environment:
       - XDG_DATA_HOME=/data
+      - XDG_CONFIG_HOME=/config
     ports:
       - 80:80
     configs:
@@ -12,6 +13,7 @@ services:
         target: /etc/caddy/Caddyfile
     volumes:
       - caddy-data:/data/caddy
+      - caddy-config:/config/caddy
     # deploy:
     #   placement:
     #     constraints: [node.role == manager]
