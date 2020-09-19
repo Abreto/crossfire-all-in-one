@@ -32,7 +32,7 @@ services:
     #     constraints: [node.role == manager]
 
   lb:
-    image: haproxy
+    image: haproxy:2.2
     configs:
       - source: loadbalance
         target: /usr/local/etc/haproxy/haproxy.cfg
