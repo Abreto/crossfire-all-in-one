@@ -40,6 +40,9 @@ services:
     #   placement:
     #     constraints: [node.role == manager]
 
+  naive:
+    image: abreto/naiveproxy
+
   v2ray:
     image: v2ray/official
     configs:
