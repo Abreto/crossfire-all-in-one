@@ -49,18 +49,6 @@ services:
     #   placement:
     #     constraints: [node.role == worker]
 
-  ss:
-    image: gists/shadowsocks-libev:v2ray-plugin-latest
-    environment:
-      - SS=ss-server --fast-open
-      - SERVER_PORT=80
-      - PASSWORD=[CF_UUID]
-      - METHOD=chacha20-ietf-poly1305
-      - PLUGIN_OPTS=server;path=/filesync/ss/v2ray-plugin
-    # deploy:
-    #   placement:
-    #     constraints: [node.role == worker]
-
   sb:
     image: abreto/sb
 
