@@ -21,10 +21,6 @@ before commands aforementioned.
 ## What includes
 
 - Trojan: `https://<host>:443`
-- SS-libev with v2ray-plugin: `https://<host>:443/filesync/ss/v2ray-plugin`
-- SS(v2ray implemention) transported via
-  - WSS: `https://<host>:443/filesync/v2ray/ws/ss`
-  - H2: `https://<host>:443/filesync/v2ray/h2/ss`
 - VMess transported via
-  - WSS: `https://<host>:443/filesync`
-  - H2: `https://<host>:443/filesync/v2ray/h2/vmess`
+  - WSS: `https://<host>:443/filesync/[UUID]/v2ray/ws/vmess`
+  - H2: `https://<host>:443/filesync/[UUID]/v2ray/h2/vmess`
