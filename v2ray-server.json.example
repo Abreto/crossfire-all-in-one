@@ -7,7 +7,7 @@
       "protocol": "vmess",
       "settings": {
         "clients": [{
-          "id": "[CF_UUID]", "alterId": 16
+          "id": "[CF_UUID]", "alterId": 0
         }]
       },
       "streamSettings": {
@@ -20,7 +20,7 @@
       "protocol": "vmess",
       "settings": {
         "clients": [{
-          "id": "[CF_UUID]", "alterId": 16
+          "id": "[CF_UUID]", "alterId": 0
         }]
       },
       "streamSettings": {

@@ -3,5 +3,7 @@
 }
 
 [CF_HOST] {
-    respond "You shouldn't see this"
+    reverse_proxy /filesync/[CF_UUID]/v2ray/ws/vmess v2ray:80
+    reverse_proxy /filesync/[CF_UUID]/v2ray/h2/vmess h2c://v2ray:280
+    reverse_proxy sb:80
 }

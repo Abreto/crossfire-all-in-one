@@ -20,7 +20,7 @@ before commands aforementioned.
 
 ## What includes
 
-- Trojan: `https://<host>:443`
+- Trojan: `https://<host>:8443`
 - VMess transported via
   - WSS: `https://<host>:443/filesync/[UUID]/v2ray/ws/vmess`
   - H2: `https://<host>:443/filesync/[UUID]/v2ray/h2/vmess`
