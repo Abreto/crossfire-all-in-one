@@ -1,5 +1,5 @@
 # crossfire-all-in-one
-A Docker Swarm solution which contains: Trojan, VMess/{WSS,H2}, SS/{WSS,H2}. ALL IN ONE.
+A Docker Swarm solution which contains: Trojan, VMess/{WSS,H2}. ALL IN ONE.
 
 ## Usage
 ```
@@ -20,11 +20,7 @@ before commands aforementioned.
 
 ## What includes
 
-- Trojan: `https://<host>:443`
-- SS-libev with v2ray-plugin: `https://<host>:443/filesync/ss/v2ray-plugin`
-- SS(v2ray implemention) transported via
-  - WSS: `https://<host>:443/filesync/v2ray/ws/ss`
-  - H2: `https://<host>:443/filesync/v2ray/h2/ss`
+- Trojan: `https://<host>:8443`
 - VMess transported via
-  - WSS: `https://<host>:443/filesync`
-  - H2: `https://<host>:443/filesync/v2ray/h2/vmess`
+  - WSS: `https://<host>:443/filesync/[UUID]/v2ray/ws/vmess`
+  - H2: `https://<host>:443/filesync/[UUID]/v2ray/h2/vmess`

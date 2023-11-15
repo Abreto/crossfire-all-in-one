@@ -2,7 +2,7 @@
     "run_type": "server",
     "local_addr": "0.0.0.0",
     "local_port": 443,
-    "remote_addr": "lb",
+    "remote_addr": "sb",
     "remote_port": 80,
     "password": [
         "[CF_UUID]"
@@ -31,7 +31,7 @@
         "no_delay": true,
         "keep_alive": true,
         "reuse_port": false,
-        "fast_open": true,
+        "fast_open": false,
         "fast_open_qlen": 20
     },
     "mysql": {
